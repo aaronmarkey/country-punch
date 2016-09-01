@@ -8,22 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		93C9B8801D750EF0007D4309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C9B87F1D750EF0007D4309 /* AppDelegate.swift */; };
-		93C9B8821D750EF0007D4309 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C9B8811D750EF0007D4309 /* ViewController.swift */; };
 		93C9B8851D750EF0007D4309 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93C9B8831D750EF0007D4309 /* Main.storyboard */; };
 		93C9B8881D750EF0007D4309 /* Country_Punch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93C9B8861D750EF0007D4309 /* Country_Punch.xcdatamodeld */; };
 		93C9B88A1D750EF0007D4309 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93C9B8891D750EF0007D4309 /* Assets.xcassets */; };
 		93C9B88D1D750EF0007D4309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93C9B88B1D750EF0007D4309 /* LaunchScreen.storyboard */; };
+		93C9B8951D750F57007D4309 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C9B8941D750F57007D4309 /* MapKit.framework */; };
+		93C9B8981D752F1D007D4309 /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C9B8971D752F1D007D4309 /* CountryTableViewCell.swift */; };
+		93C9B89A1D7532E8007D4309 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C9B8991D7532E8007D4309 /* Country.swift */; };
+		93C9B89C1D7535A6007D4309 /* CountryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C9B89B1D7535A6007D4309 /* CountryTableViewController.swift */; };
+		93FA6E571D77690400448A50 /* CountryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FA6E561D77690400448A50 /* CountryDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		93C9B87C1D750EF0007D4309 /* Country Punch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Country Punch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C9B87F1D750EF0007D4309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		93C9B8811D750EF0007D4309 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		93C9B8841D750EF0007D4309 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		93C9B8871D750EF0007D4309 /* Country_Punch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Country_Punch.xcdatamodel; sourceTree = "<group>"; };
 		93C9B8891D750EF0007D4309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93C9B88C1D750EF0007D4309 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93C9B88E1D750EF0007D4309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93C9B8941D750F57007D4309 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		93C9B8961D750FAA007D4309 /* Country Punch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Country Punch.entitlements"; sourceTree = "<group>"; };
+		93C9B8971D752F1D007D4309 /* CountryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
+		93C9B8991D7532E8007D4309 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		93C9B89B1D7535A6007D4309 /* CountryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryTableViewController.swift; sourceTree = "<group>"; };
+		93FA6E561D77690400448A50 /* CountryDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93C9B8951D750F57007D4309 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +50,7 @@
 		93C9B8731D750EF0007D4309 = {
 			isa = PBXGroup;
 			children = (
+				93C9B8941D750F57007D4309 /* MapKit.framework */,
 				93C9B87E1D750EF0007D4309 /* Country Punch */,
 				93C9B87D1D750EF0007D4309 /* Products */,
 			);
@@ -56,13 +67,17 @@
 		93C9B87E1D750EF0007D4309 /* Country Punch */ = {
 			isa = PBXGroup;
 			children = (
+				93C9B8961D750FAA007D4309 /* Country Punch.entitlements */,
 				93C9B87F1D750EF0007D4309 /* AppDelegate.swift */,
-				93C9B8811D750EF0007D4309 /* ViewController.swift */,
 				93C9B8831D750EF0007D4309 /* Main.storyboard */,
 				93C9B8891D750EF0007D4309 /* Assets.xcassets */,
 				93C9B88B1D750EF0007D4309 /* LaunchScreen.storyboard */,
 				93C9B88E1D750EF0007D4309 /* Info.plist */,
 				93C9B8861D750EF0007D4309 /* Country_Punch.xcdatamodeld */,
+				93C9B8971D752F1D007D4309 /* CountryTableViewCell.swift */,
+				93C9B8991D7532E8007D4309 /* Country.swift */,
+				93C9B89B1D7535A6007D4309 /* CountryTableViewController.swift */,
+				93FA6E561D77690400448A50 /* CountryDetailsViewController.swift */,
 			);
 			path = "Country Punch";
 			sourceTree = "<group>";
@@ -100,6 +115,17 @@
 					93C9B87B1D750EF0007D4309 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = YEY9LV7ANQ;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -139,8 +165,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93C9B8821D750EF0007D4309 /* ViewController.swift in Sources */,
+				93C9B8981D752F1D007D4309 /* CountryTableViewCell.swift in Sources */,
+				93FA6E571D77690400448A50 /* CountryDetailsViewController.swift in Sources */,
+				93C9B89C1D7535A6007D4309 /* CountryTableViewController.swift in Sources */,
 				93C9B8801D750EF0007D4309 /* AppDelegate.swift in Sources */,
+				93C9B89A1D7532E8007D4309 /* Country.swift in Sources */,
 				93C9B8881D750EF0007D4309 /* Country_Punch.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,6 +283,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Country Punch/Country Punch.entitlements";
 				INFOPLIST_FILE = "Country Punch/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mechancalog.Country-Punch";
@@ -265,6 +295,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Country Punch/Country Punch.entitlements";
 				INFOPLIST_FILE = "Country Punch/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mechancalog.Country-Punch";
@@ -291,6 +322,7 @@
 				93C9B8931D750EF0007D4309 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
