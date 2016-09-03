@@ -16,8 +16,8 @@ class Country {
     var latitude: Float
     var longitude: Float
     
-    //MARK: Initialization
     
+    //MARK: Initialization
     init(name: String, capital: String, lat: Float, long: Float) {
         self.name = name
         self.capital = capital
