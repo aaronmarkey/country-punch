@@ -40,12 +40,7 @@ class CountryTableViewController: UITableViewController {
             if let value = response.result.value {
                 let json = JSON(value)
                 for j in json {
-                    let country = Country(
-                        name: j.1["name"].stringValue,
-                        capital: j.1["capital"].stringValue,
-                        lat: Float(j.1["latlng"][0].doubleValue),
-                        long: Float(j.1["latlng"][1].doubleValue)
-                    )
+                    let country = Country(json: j)
                     countryList.append(country)
                 }
                 completion(countryList)
@@ -67,11 +62,9 @@ class CountryTableViewController: UITableViewController {
     
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "CountryTableViewCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CountryTableViewCell
         
-        // Fetches the appropriate meal for the data source layout.
         let country = countries[indexPath.row]
         
         cell.countyTitleLabel.text = country.name
@@ -86,7 +79,7 @@ class CountryTableViewController: UITableViewController {
             let nextScene =  segue.destinationViewController as! CountryDetailsViewController
             let countryIndex = tableView.indexPathForSelectedRow as NSIndexPath?
             
-            //set back button text on
+            //set back button text on navbar
             let backItem = UIBarButtonItem()
             backItem.title = ""
             navigationItem.backBarButtonItem = backItem
