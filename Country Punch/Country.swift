@@ -22,7 +22,7 @@ class Country {
     var languages: [String]
     var population: Double
     var area: Double
-    var timezone: [String]
+    var timezones: [String]
     var borders: [String]
 
     var name: String
@@ -43,7 +43,7 @@ class Country {
         self.languages = Country.stepThroughJson(json.1["languages"])
         self.population = json.1["population"].doubleValue
         self.area = json.1["area"].doubleValue
-        self.timezone = Country.stepThroughJson(json.1["timezones"])
+        self.timezones = Country.stepThroughJson(json.1["timezones"])
         self.borders = Country.stepThroughJson(json.1["borders"])
 
         self.name = json.1["name"].stringValue
