@@ -11,6 +11,8 @@ import Alamofire
 import SwiftyJSON
 
 class CountryTableViewController: UITableViewController {
+    //MARK: Outlets
+    @IBOutlet weak var searchBar: UISearchBar!
     
     
     //MARK: Properties
@@ -23,7 +25,15 @@ class CountryTableViewController: UITableViewController {
             self.countries = newCountries
             self.tableView.reloadData()
         })
+        
         self.navigationItem.title = "Country Punch"
+        
+        //search bar stuff
+//        let searchController = UISearchController(searchResultsController: nil)
+//        searchController.searchResultsUpdater = self
+//        searchController.dimsBackgroundDuringPresentation = false
+//        definesPresentationContext = true
+//        tableView.tableHeaderView = searchController.searchBar
     }
 
     

@@ -9,26 +9,26 @@
 import UIKit
 import SwiftyJSON
 
-class Country {
+class Country: NSObject {
     //MARK: Properties
     
-    var capital: String
-    var latitude: Float
-    var longitude: Float
-    var domains: [String]
-    var currencies: [String]
-    var region: String
-    var subregion: String
-    var languages: [String]
-    var population: Double
-    var area: Double
-    var timezones: [String]
-    var borders: [String]
+    let capital: String
+    let latitude: Float
+    let longitude: Float
+    let domains: [String]
+    let currencies: [String]
+    let region: String
+    let subregion: String
+    let languages: [String]
+    let population: Double
+    let area: Double
+    let timezones: [String]
+    let borders: [String]
 
-    var name: String
-    var nameTranslations: [String]
-    var nameAltSpellings: [String]
-    var nameNative: String
+    let name: String
+    let nameTranslations: [String]
+    let nameAltSpellings: [String]
+    let nameNative: String
     
     
     //MARK: Initialization
@@ -62,6 +62,10 @@ class Country {
         }
         
         return value
+    }
+    
+    func printName() -> String {
+        return self.name
     }
     
 }

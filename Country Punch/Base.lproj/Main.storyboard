@@ -42,8 +42,19 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Country Punch" id="mLV-xX-0WT"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="XJE-Gg-b3g" id="l6b-nv-FHM"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rqb-im-Y6s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="XJE-Gg-b3g">
+                    <connections>
+                        <outlet property="delegate" destination="kXx-mb-9Ng" id="5y5-lh-4NS"/>
+                        <outlet property="searchContentsController" destination="kXx-mb-9Ng" id="JQ4-r7-n4k"/>
+                        <outlet property="searchResultsDataSource" destination="kXx-mb-9Ng" id="zRh-QH-SHT"/>
+                        <outlet property="searchResultsDelegate" destination="kXx-mb-9Ng" id="w5r-8K-O3o"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="518.5" y="327.5"/>
         </scene>
