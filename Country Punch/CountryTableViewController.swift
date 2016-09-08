@@ -17,10 +17,15 @@ class CountryTableViewController: UITableViewController {
     
     //MARK: Properties
     var countries = [Country]()
-    
+    var searchedCountries = [Country]()
+    let searchController = UISearchController(searchResultsController: nil)
+
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //load country data
         loadCountries({(newCountries: [Country]) in
             self.countries = newCountries
             self.tableView.reloadData()
@@ -28,12 +33,8 @@ class CountryTableViewController: UITableViewController {
         
         self.navigationItem.title = "Country Punch"
         
-        //search bar stuff
-//        let searchController = UISearchController(searchResultsController: nil)
-//        searchController.searchResultsUpdater = self
-//        searchController.dimsBackgroundDuringPresentation = false
-//        definesPresentationContext = true
-//        tableView.tableHeaderView = searchController.searchBar
+        //define search bar
+        generateSearchBar(searchController)
     }
 
     
@@ -43,7 +44,9 @@ class CountryTableViewController: UITableViewController {
     
     
 
-    // MARK: - Table view data source
+    // MARK: - functions
+    
+    //loads the Countries from restcountries.eu API
     func loadCountries(completion: ([Country])->()) {
         var countryList = [Country]()
         Alamofire.request(.GET, "https://restcountries.eu/rest/v1/all").validate().responseJSON { response in
@@ -60,6 +63,31 @@ class CountryTableViewController: UITableViewController {
         }
     }
     
+    //creates the searchbar controller and puts in in view
+    func generateSearchBar(searchController: UISearchController) {
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        
+        //set text field cursor color
+        let textFieldInsideSearchBar = searchController.searchBar.valueForKey("searchField") as? UITextField
+        textFieldInsideSearchBar?.tintColor = UIColor.init(red: 0/255, green:  128/255, blue:  64/255, alpha:  1)
+
+        //set search bar bg color and cancel button text color
+        searchController.searchBar.barTintColor = UIColor.init(red: 0/255, green:  128/255, blue:  64/255, alpha:  1)
+        searchController.searchBar.tintColor = UIColor.whiteColor()
+        
+        tableView.tableHeaderView = searchController.searchBar
+    }
+    
+    //the search function
+    func searchThroughCountries(searchText: String) {
+        searchedCountries = countries.filter({(country) in
+            return country.name.lowercaseString.containsString(searchText.lowercaseString)
+        })
+        tableView.reloadData()
+    }
+    
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -67,7 +95,11 @@ class CountryTableViewController: UITableViewController {
     
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return countries.count
+        if searchController.active && searchController.searchBar.text != "" {
+            return searchedCountries.count
+        } else {
+            return countries.count
+        }
     }
     
 
@@ -75,7 +107,12 @@ class CountryTableViewController: UITableViewController {
         let cellIdentifier = "CountryTableViewCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CountryTableViewCell
         
-        let country = countries[indexPath.row]
+        let country: Country
+        if searchController.active && searchController.searchBar.text != "" {
+            country = searchedCountries[indexPath.row]
+        } else {
+            country = countries[indexPath.row]
+        }
         
         cell.countyTitleLabel.text = country.name
         
@@ -95,9 +132,20 @@ class CountryTableViewController: UITableViewController {
             navigationItem.backBarButtonItem = backItem
             
             //pass country to next view
-            nextScene.country = countries[countryIndex!.row]
+            if searchController.active && searchController.searchBar.text != "" {
+                nextScene.country = searchedCountries[countryIndex!.row]
+            } else {
+                nextScene.country = countries[countryIndex!.row]
+            }
         }
     }
     
 
+}
+
+
+extension CountryTableViewController: UISearchResultsUpdating {
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        searchThroughCountries(searchController.searchBar.text!)
+    }
 }

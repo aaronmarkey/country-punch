@@ -8,14 +8,14 @@
         <!--CountryTable-->
         <scene sceneID="BTg-0t-yoZ">
             <objects>
-                <tableViewController storyboardIdentifier="countryList" title="CountryTable" id="kXx-mb-9Ng" customClass="CountryTableViewController" customModule="Country_Punch" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="countryList" title="CountryTable" extendedLayoutIncludesOpaqueBars="YES" id="kXx-mb-9Ng" customClass="CountryTableViewController" customModule="Country_Punch" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" id="EaM-1k-ZMK">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CountryTableViewCell" rowHeight="50" id="hf0-JO-QyG" customClass="CountryTableViewCell" customModule="Country_Punch" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="92" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hf0-JO-QyG" id="ehy-0b-vmO">
                                     <rect key="frame" x="0.0" y="0.0" width="342" height="49.5"/>
@@ -119,6 +119,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="XCD-9O-bKf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
