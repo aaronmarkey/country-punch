@@ -12,6 +12,7 @@ import SwiftyJSON
 class Country: NSObject {
     //MARK: Properties
     
+    let alpha3code: String
     let capital: String
     let latitude: Float
     let longitude: Float
@@ -33,6 +34,7 @@ class Country: NSObject {
     
     //MARK: Initialization
     init(json: (String, JSON)) {
+        self.alpha3code = json.1["alpha3code"].stringValue
         self.capital = json.1["capital"].stringValue
         self.latitude = Float(json.1["latlng"][0].doubleValue)
         self.longitude = Float(json.1["latlng"][1].doubleValue)
@@ -63,9 +65,4 @@ class Country: NSObject {
         
         return value
     }
-    
-    func printName() -> String {
-        return self.name
-    }
-    
 }

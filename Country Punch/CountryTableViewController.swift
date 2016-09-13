@@ -21,7 +21,6 @@ class CountryTableViewController: UITableViewController {
     let searchController = UISearchController(searchResultsController: nil)
 
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,7 +40,6 @@ class CountryTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
     
 
     // MARK: - functions
