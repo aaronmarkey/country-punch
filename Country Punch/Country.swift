@@ -56,11 +56,11 @@ class Country: NSObject {
    
     
     //MARK: Prive class functions
-    private class func stepThroughJson(json: JSON) -> [String] {
+    fileprivate class func stepThroughJson(_ json: JSON) -> [String] {
         var value = [String]()
         
         for j in json {
-            value.append(String(j.1))
+            value.append(String(describing: j.1))
         }
         
         return value

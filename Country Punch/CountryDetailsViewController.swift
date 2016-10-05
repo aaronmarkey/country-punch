@@ -43,8 +43,8 @@ class CountryDetailsViewController: UIViewController {
         borderingCountries.text = self.arrayToString(country.borders, format: nil)
         languages.text = self.arrayToString(country.languages, format: nil)
         currencies.text = self.arrayToString(country.currencies, format: {(code: String) -> String in
-            let local = NSLocale(localeIdentifier: code)
-            return local.displayNameForKey(NSLocaleCurrencySymbol, value: code)! + " (\(code))"
+            let local = Locale(identifier: code)
+            return (local as NSLocale).displayName(forKey: NSLocale.Key.currencySymbol, value: code)! + " (\(code))"
         })
         tlds.text = self.arrayToString(country.domains, format: nil)
         map.setRegion(generateMapRegion(country.latitude, long: country.longitude,
@@ -56,7 +56,7 @@ class CountryDetailsViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    func arrayToString(array: [String], format: ((String) -> String)?) -> String {
+    func arrayToString(_ array: [String], format: ((String) -> String)?) -> String {
         var string = ""
         if !array.isEmpty {
             for item in array {
@@ -76,14 +76,14 @@ class CountryDetailsViewController: UIViewController {
         return string
     }
     
-    func formatNumber(number: Double) -> String {
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+    func formatNumber(_ number: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = NumberFormatter.Style.decimal
         
-        return formatter.stringFromNumber(number)!
+        return formatter.string(from: number as NSNumber)!
     }
     
-    func generateMapRegion(lat: Float, long: Float, area: Double, height: CGFloat, width: CGFloat, size: Double) -> MKCoordinateRegion {
+    func generateMapRegion(_ lat: Float, long: Float, area: Double, height: CGFloat, width: CGFloat, size: Double) -> MKCoordinateRegion {
         let square = sqrt(area)
         let latDelta = square/Double(height) * size
         let longDelta = square/Double(width) * size
@@ -93,7 +93,7 @@ class CountryDetailsViewController: UIViewController {
         return MKCoordinateRegion(center: center, span: span)
     }
     
-    func generateMapAnnotation(lat: Float, long: Float, name: String) -> MKPointAnnotation {
+    func generateMapAnnotation(_ lat: Float, long: Float, name: String) -> MKPointAnnotation {
         let anno = MKPointAnnotation()
         anno.coordinate.latitude = Double(lat)
         anno.coordinate.longitude = Double(long)
@@ -102,7 +102,7 @@ class CountryDetailsViewController: UIViewController {
         return anno
     }
     
-    func generateRegionText(region: String, subRegion: String!) -> String {
+    func generateRegionText(_ region: String, subRegion: String!) -> String {
         if !subRegion.isEmpty {
             return region + ", " + subRegion
         } else {
@@ -110,9 +110,9 @@ class CountryDetailsViewController: UIViewController {
         }
     }
     
-    func getSymbolForCurrencyCode(code: String) -> String? {
-        let locale = NSLocale(localeIdentifier: code)
-        return locale.displayNameForKey(NSLocaleCurrencySymbol, value: code)
+    func getSymbolForCurrencyCode(_ code: String) -> String? {
+        let locale = Locale(identifier: code)
+        return (locale as NSLocale).displayName(forKey: NSLocale.Key.currencySymbol, value: code)
     }
 
 }
