@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Country Punch/CountryDetailsViewController.swift"
-            timestampString = "495433922.148091"
+            timestampString = "495437657.815353"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "generateMapAnnotation(_:long:name:)"
             landmarkType = "5">
          </BreakpointContent>

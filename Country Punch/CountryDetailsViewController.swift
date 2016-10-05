@@ -60,19 +60,13 @@ class CountryDetailsViewController: UIViewController {
         var string = ""
         if !array.isEmpty {
             for item in array {
-                if item != array.last {
-                    if let formatter = format {
-                        string += formatter(item)
-                    } else {
-                        string += item
-                    }
-                    string += ", "
+                if let formatter = format {
+                    string += formatter(item)
                 } else {
-                    if let formatter = format {
-                        string += formatter(item)
-                    } else {
-                        string += item
-                    }
+                    string += item
+                }
+                if item != array.last {
+                    string += ", "
                 }
             }
         } else {
@@ -95,9 +89,8 @@ class CountryDetailsViewController: UIViewController {
         let longDelta = square/Double(width) * size
         let center = CLLocationCoordinate2D(latitude: Double(lat), longitude: Double(long))
         let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: longDelta)
-        let coor = MKCoordinateRegion(center: center, span: span)
         
-        return coor
+        return MKCoordinateRegion(center: center, span: span)
     }
     
     func generateMapAnnotation(lat: Float, long: Float, name: String) -> MKPointAnnotation {
