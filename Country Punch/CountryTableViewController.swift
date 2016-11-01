@@ -56,7 +56,7 @@ class CountryTableViewController: UITableViewController {
                 }
                 completion(countryList)
             } else {
-                print("Error in response")
+                self.generateAlert(title: "Could not connect", message: "We couldn't connect to the map data. Please check to see if you're connected to the internet.")
             }
         }
     }
@@ -84,6 +84,15 @@ class CountryTableViewController: UITableViewController {
             return country.name.lowercased().contains(searchText.lowercased())
         })
         tableView.reloadData()
+    }
+    
+    func generateAlert(title: String, message: String, style: UIAlertControllerStyle = .alert) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: style)
+        let okay = UIAlertAction(title: "Okay", style: .default, handler: { (self) in
+            print("restcountry.eu not available alert reached")
+        })
+        alert.addAction(okay)
+        present(alert, animated: true, completion: nil)
     }
     
     
